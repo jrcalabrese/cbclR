@@ -18,7 +18,7 @@ library(reshape2)
 
 source("ui.R")
 
-server <- function(input, output) {
+server <- function(input, output, session) {
   
   my_data <- reactive({
     
@@ -38,9 +38,6 @@ server <- function(input, output) {
     req(my_data())
     
     if (all(c("Product", "Stock") %in% colnames(my_data()))) return(NULL) # make sure your target columns in dataset uploaded
-    
-    #{if (nrow(my_data()) > 1) ggplot(aes(x=variable, y=value, group=1)) }
-    #{if (nrow(my_data()) == 1) ggplot(aes(x=variable, y=value)) }
     
     if(nrow(my_data()) == 1) {
     my_data() %>%
@@ -92,6 +89,25 @@ server <- function(input, output) {
       
     })
   
+  # everything below, drives me nuts
+  
+  output$downloadSample <- downloadHandler(
+    filename = function() {
+      paste("sample-", Sys.Date(), ".csv", sep="")
+    },
+    content = function(file) {
+      write.csv(sample, file)
+    }
+  )
+  
+  output$downloadTemplate <- downloadHandler(
+  filename = function() {
+    paste("template-", Sys.Date(), ".csv", sep="")
+  },
+  content = function(file) {
+    write.csv(template, file)
+  }
+)
 }
 
 # DO NOT ACTUALLY INLCLUDE THESE LINES IN THE FINAL PRODUCT!!!!
