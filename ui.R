@@ -37,7 +37,7 @@ ui <-  navbarPage("cbclR by @jrosecalabrese", theme = shinytheme("flatly"),
                                downloadButton('downloadData', 'Download')
                              ),
                              mainPanel(
-                               tableOutput('contents')
+                               plotOutput('contents')
                              )
                            )
                   )
