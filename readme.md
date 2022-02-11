@@ -1,5 +1,9 @@
 # cbclR
 
-I created this because the CBCL is commonly used in developmental research. With so many items, the CBCL is difficult to calculate by hand. 
+> A Shiny app to calculate CBCL subscales.
 
-I may submit this to the 2022 Shiny Contest.
+[Link to cbclR Shiny app here.](https://jrcalabrese.shinyapps.io/cbclR/)
+
+I created this tool because the [Child Behavior Checklist](https://aseba.org/school-age/) is commonly used in developmental research and can be difficult to calculate by hand. CBCL questions not provided.
+
+Feedback and suggestions welcome.
